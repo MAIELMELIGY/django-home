@@ -1,0 +1,615 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %} 
+{% get_current_language as CURRENT_LANGUAGE %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<!DOCTYPE html>
+<html >
+
+<head>
+    {% for header in headers %}
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <title>{{header.title}}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{header.icon.url}}" rel="icon">
+  <link href="{{header.apple.url}}" rel="apple-touch-icon">
+  {% endfor %}
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css'%}" rel="stylesheet">
+  {% if LANGUAGE_CODE == 'ar' %}
+    <link rel="stylesheet" href="{% static 'css/stylertl.css'%}">
+  {% endif %}
+  {% get_current_language as LANGUAGE_CODE %}
+  <style>
+    /* Height for devices larger than 576px */
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  {% for header in headers %}
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div class="logo">
+        <!-- Uncomment below if you prefer to use an image logo -->
+         <a href="{% url 'home' %}"><img src= "{{ header.navlogo.url }}" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="#services">Service</a></li>
+          <li><a class="nav-link scrollto" href="#Product">Product</a></li>
+          <li><a class="nav-link scrollto" href="#Whyus">Whyus</a></li>
+          <li><a class="nav-link scrollto" href="#About">About</a></li>
+          <li><a class="nav-link scrollto" href="#Client">Client</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  {% endfor %}
+  <!-- ======= hero Section ======= -->
+ 
+
+  <!-- ======= Hero Section ======= -->
+  
+      <!-- Background image -->
+      {% for header in headers %}
+      <div id="hero" class="bg-image vh-100 shadow-1-strong">
+        <video style="min-width: 100%; min-height: 100%;" playsinline autoplay muted loop>
+          <source class="h-100" src="{{header.videofile.url}}" type="video/mp4" />
+        </video>
+          </div>
+      
+          {% endfor %}
+    <!--Main Navigation-->
+ 
+<main id="main">
+ <!-- ======= Services Section ======= -->
+ <div id="services" class="services-area area-padding">
+     
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="section-headline services-head text-center">
+            <h2>Our Services</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        {% for i in services %}
+        <div class="col-md-4 col-sm-4 col-xs-12">
+        
+          <div class="about-move">
+            <div class="services-details">
+              <div class="single-services">
+                <div  class="services-icon">
+                    <i class="{{i.icon}}"></i>
+                  </div>
+                <h4>{{i.title}}</h4>
+                <p>{{i.body|safe}} </p>
+              </div>
+           
+            </div>
+         
+            <!-- end about-details -->
+          </div>
+        </div>
+        {% endfor %}
+        
+        </div>
+       
+       
+      </div>
+
+  </div><!-- End Services Section -->
+  <section id="team" class="team">
+
+    <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+
+         
+        </div>
+
+    <div class="row">
+
+        <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+          <div class="team-block bottom">
+          <a  href="{% url 'productHdl' %}"> <img src="{% static 'img/5.png'%}"  class="img-responsive" alt="img">
+          </a> 
+          </div>
+        </div>
+
+        <div class=" col-lg-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="team-block bottom">
+            <a  href="{% url 'productHdl' %}"> <img src="{% static 'img/3.png'%}" class="img-responsive" alt="img">
+            </a> 
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+  </section>
+
+
+    <!-- ======= About Section ======= -->
+    <section id="counts" class="counts section-bg">
+        <div class="container">
+  
+            <div class="row justify-content-end">
+ {%for i in abouts %}
+                <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-emoji-smile"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="{{i.number_of_client}}" data-purecounter-duration="1" class="purecounter"></span>
+                    <p>Happy Clients</p>
+                  </div>
+                </div>
+  
+                <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-journal-richtext"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="{{i.number_of_project}}" data-purecounter-duration="1" class="purecounter"></span>
+                    <p>Projects</p>
+                  </div>
+                </div>
+  
+                <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-clock"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="{{i.Years_of_experience}}" data-purecounter-duration="1" class="purecounter"></span>
+                    <p>Years of experience</p>
+                  </div>
+                </div>
+  
+                <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-award"></i>
+                    <span data-purecounter-start= 0 data-purecounter-end={{i.number_of_Awards}} data-purecounter-duration="1" class="purecounter"></span>
+                    <p>Awards</p>
+                  </div>
+                </div>
+  {%endfor%}
+  
+          </div>
+  
+        </div>
+      </section><!-- End Counts Section -->
+  
+    <div id="about" class="about-area area-padding">
+      {% for about in abouts %}
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>{{about.header}}</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- single-well start-->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="well-left">
+              <div class="single-well">
+                <a href="#">
+                  <img src="{{about.about_image.url}}" alt="">
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- single-well end-->
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="well-middle">
+              <div class="single-well">
+                <a href="#">
+                  <h4 class="sec-head">Home Automation</h4>
+                </a>
+                <p>
+                 {{about.body|safe}}            
+                   </p>
+            
+              </div>
+            </div>
+          </div>
+          <!-- End col-->
+        </div>
+      </div>
+      {% endfor %}
+
+    </div><!-- End About Section -->
+
+   
+
+    <!-- ======= Team Section ======= -->
+    <div id="team" class="our-team-area area-padding">
+      <div class="container">
+        {% for i in teams %}
+        <div class="row">
+        
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>{{i.title}}</h2>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        <div class="row">
+          {% for i in teams %}
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="single-team-member">
+              <div class="team-img">
+                <a href="#">
+                  <img src="{{i.profile_img.url}}" alt="">
+                </a>
+              
+              </div>
+              <div class="team-content text-center">
+                <h4>{{i.name}}</h4>
+                <p>{{i.position}}</p>
+              </div>
+            </div>
+          
+          </div>
+          {% endfor %}
+      
+          <!-- End column -->
+        </div>
+      </div>
+    </div><!-- End Team Section -->
+
+   
+
+    <!-- ======= Portfolio Section ======= -->
+    <div id="portfolio" class="portfolio-area area-padding fix">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="section-headline text-center">
+              <h2>Projects </h2>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="row awesome-project-content portfolio-container">
+
+          <!-- portfolio-item start -->
+          {% for i in projects %}
+          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app portfolio-item">
+            <div class="single-awesome-project">
+              <div class="awesome-img">
+                <a href="{% url 'project' slug=i.slug %}"><img src="{{i.project_img_1.url}}" alt="" />
+                <div class="add-actions text-center">
+                  <div class="project-dec">
+
+                      <h5>{{i.project_name}}</h5>
+                      <span>{{i.Service_category}}</span>
+                   
+                  </div>
+                </div>
+              </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <!-- portfolio-item end -->
+
+          <!-- portfolio-item end -->
+
+        </div>
+      </div>
+    </div><!-- End Portfolio Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <div id="testimonials" class="testimonials">
+      <div class="container">
+
+        <div class="testimonials-slider swiper">
+          <div class="swiper-wrapper">
+            {% for i in Clients %}
+            <div class="swiper-slide">
+            
+
+              <div class="testimonial-item">
+                <img src="{{i.img.url}}" class="testimonial-img" alt="">
+                <h3>{{i.client_name}}</h3>
+                <h4>{{i.position|safe}}</h4>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        {{i.review_message}}                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+            {% endfor %}
+
+          
+        
+            
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </div><!-- End Testimonials Section -->
+
+      <!-- ======= Clients Section ======= -->
+      <section id="clients" class="clients section-bg">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Projects</h2>
+            <p>our projects in </p>
+          </div>
+  
+          <div class="clients-slider swiper" data-aos="fade-up" data-aos-delay="100">
+            
+            <div class="swiper-wrapper align-items-center">
+                
+              <div class="swiper-slide">
+                {%for i in projects_in%}<img src="{{i.img.url}}" class="img-fluid" alt="">
+                {% endfor %}
+            </div>
+             
+              <div class="swiper-pagination"></div>
+            
+          </div>
+  
+        </div>
+        </div>
+      </section><!-- End Clients Section -->
+  
+      <section id="about-boxes" class="about-boxes">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row">
+              {%for i in Mision_visions%}
+            <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="card">
+                <img src="{{i.img.url}}" class="card-img-top" alt="...">
+                <div class="card-icon">
+                  <i class="{{i.icon}}"></i>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">{{i.title}}</a></h5>
+                  <p class="card-text">{{i.body|safe}} </p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+           
+         
+          </div>
+  
+        </div>
+      </section><!-- End About Boxes Section -->
+      <section id="Why" class="Why">
+        <div class="container">
+  
+          <div class="section-title">
+            <h2>Why Home Automation</h2>
+          </div>
+  
+          <div class="row">
+                  {%for i in Why_home%}
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-3 " data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon-box iconbox-blue">
+                <div class="icon">
+                  <i class="{{i.icon}}"></i>
+                </div>
+                <h6>{{i.title}}</h6>
+              </div>
+            </div>
+            {%endfor%}
+        </div>
+
+    </div>
+  </section><!-- End Why Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <div id="contact" class="contact-area">
+      <div class="contact-inner area-padding">
+        <div class="contact-overly"></div>
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="section-headline text-center">
+                <h2>Contact us</h2>
+              </div>
+            </div>
+          </div>
+          {% for header in headers %}
+          <div class="row">
+
+            <!-- Start contact icon column -->
+            <div class="col-md-4">
+              <div class="contact-icon text-center">
+                <div class="single-icon">
+                  <i class="bi bi-phone"></i>
+                  <p>
+                    Call: {{header.phone}}<br>
+                    
+                  </p>
+                </div>
+              </div>
+             
+            </div>
+            <!-- Start contact icon column -->
+            <div class="col-md-4">
+              <div class="contact-icon text-center">
+                <div class="single-icon">
+                  <i class="bi bi-envelope"></i>
+                  <p>
+                    Email: {{header.email}}<br>
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Start  contact -->
+            <div class="col-md-6">
+              <div class="form contact-form">
+                <form  method="POST"  role="form" >
+                  {% csrf_token %}
+<div class="form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                  </div>
+                  <div class="my-3">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                  </div>
+                  <div class="text-center"><button class="btn" type="submit">Send Message</button></div> 
+                </form>
+              </div>
+            </div>
+            <!-- End Left contact -->
+          </div>
+              {% endfor%}
+
+        </div>
+      </div>
+    </div><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    {% for header in headers %}
+
+    <div class="footer-area">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-4">
+            <div class="footer-content">
+              <div class="footer-head">
+                <div class="footer-logo">
+                  <a href="{% url 'home' %}"><img src= "{{ header.navlogo.url }}" alt="" class="img-fluid" ></a>
+
+                </div>
+
+                <p>{{header.footer_text|safe}}</p>
+                <div class="footer-icons">
+                  <ul>
+                    <li>
+                      <a href="{{header.facebook_url}}"><i class="bi bi-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="{{header.twitter_url}}"><i class="bi bi-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="{{header.instagram_url}}"><i class="bi bi-instagram"></i></a>
+                    </li>
+                    <li>
+                      <a href="{{header.linkedin_url}}"><i class="bi bi-linkedin"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end single footer -->
+          <div class="col-md-4">
+            <div class="footer-content">
+           
+                <div class="footer-contacts">
+                  <p><span>Tel:</span> {{header.phone}}</p>
+                  <p><span>Email:</span> {{header.email}}</p>
+                  <p><span>Working Hours:</span> {{header.working_hours}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h4> Useful  Links</h4>
+              <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                
+              </ul>
+            </div>
+           
+          </div>
+          
+        </div>
+      </div>
+     
+    </div>
+    <div class="footer-area-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="copyright text-center">
+              <p>
+                &copy; Copyright <strong>Mai Elmeligy</strong>. All Rights Reserved
+              </p>
+            </div>
+            <div class="credits">
+         
+              Designed by Mai Elmeligy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor%}
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js'%}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js'%}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js'%}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js'%}"></script>
+  <script src="{% static 'vendor/purecounter/purecounter.js'%}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js'%}"></script>
+
+</body>
+
+</html>
