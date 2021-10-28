@@ -4,10 +4,7 @@ body {
 }
 html :lang(ar) * {
   text-align: right;
-  direction:rtl;
-
-
-
+  direction: rtl;
 }
 
 .floatleft {
@@ -101,7 +98,7 @@ a {
 }
 
 a:hover {
-  color: #e94b27;;
+  color: #e94b27;
   text-decoration: none;
 }
 
@@ -402,8 +399,8 @@ div#preloader {
   }
 }
 
-i{
-  color:#e94b27;
+i {
+  color: #e94b27;
 }
 /**
 * Mobile Navigation 
@@ -2515,8 +2512,8 @@ span.email-notes {
   min-height: 40px;
   margin-top: 86px;
 }
-.breadcrumbs-details{
-  color:#3c3c3c;
+.breadcrumbs-details {
+  color: #3c3c3c;
 }
 @media (max-width: 992px) {
   .breadcrumbs {
@@ -2543,7 +2540,7 @@ span.email-notes {
 }
 .breadcrumbs ol li + li {
   padding-left: 10px;
-  color:#3c3c3c;
+  color: #3c3c3c;
 }
 .breadcrumbs ol li + li::before {
   display: inline-block;
@@ -2572,14 +2569,20 @@ span.email-notes {
   margin-top: 20px;
   position: relative;
 }
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   background-color: #fff;
   opacity: 1;
   border: 1px solid #3498db;
 }
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet-active {
   background-color: #3498db;
 }
 .portfolio-details .portfolio-info {
@@ -2597,7 +2600,7 @@ span.email-notes {
   list-style: none;
   padding: 0;
   font-size: 15px;
-  color:#3c3c3c;
+  color: #3c3c3c;
 }
 .portfolio-details .portfolio-info ul li + li {
   margin-top: 10px;
@@ -2609,7 +2612,7 @@ span.email-notes {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 20px;
-  color:#3c3c3c;
+  color: #3c3c3c;
 }
 .portfolio-details .portfolio-description p {
   padding: 0;
@@ -2630,7 +2633,8 @@ span.email-notes {
   background: rgba(255, 255, 255, 0.92);
   z-index: 9;
 }
-.about-boxes .container, .about-boxes .container-fluid {
+.about-boxes .container,
+.about-boxes .container-fluid {
   position: relative;
   z-index: 10;
 }
@@ -2802,7 +2806,7 @@ span.email-notes {
   font-family: "Raleway", sans-serif;
   font-size: 14px;
 }
- .count-box {
+.count-box {
   padding: 60px 0;
   width: 100%;
 }
@@ -2813,7 +2817,7 @@ span.email-notes {
   float: left;
   line-height: 0;
 }
- .count-box span {
+.count-box span {
   font-size: 28px;
   line-height: 25px;
   display: block;
@@ -2840,7 +2844,8 @@ span.email-notes {
 }
 .count-box a:hover {
   color: #477392;
-}#team .team-block {
+}
+#team .team-block {
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
   height: 254px;
   overflow: hidden;
@@ -2916,8 +2921,8 @@ span.email-notes {
   }
 }
 
-.video-src{
-  width:25%;
+.video-src {
+  width: 25%;
 }
 
 .testimonials .swiper-pagination {
@@ -2930,4 +2935,93 @@ span.email-notes {
   background-color: #fff;
   opacity: 1;
   border: 1px solid #ffc107;
+}
+
+.block {
+  overflow: hidden;
+  width: 800px;
+  margin: 50px auto;
+  background: #fff;
+}
+.animation {
+  width: auto;
+  height: 100px;
+  font-size: 0px;
+}
+.animation div {
+  display: inline-block;
+  width: auto;
+  float: none;
+  padding: 0 10px;
+}
+.team .member {
+  text-align: center;
+  margin-bottom: 20px;
+  background: #343a40;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.team .member .member-info {
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: 0.2s;
+}
+.team .member .member-info-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  transition: bottom 0.4s;
+}
+.team .member .member-info-content h4 {
+  font-weight: 700;
+  margin-bottom: 2px;
+  font-size: 18px;
+  color: #fff;
+}
+.team .member .member-info-content span {
+  font-style: italic;
+  display: block;
+  font-size: 13px;
+  color: #fff;
+}
+.team .member .social {
+  position: absolute;
+  left: 0;
+  bottom: -38px;
+  right: 0;
+  height: 48px;
+  transition: bottom ease-in-out 0.4s;
+  text-align: center;
+}
+.team .member .social a {
+  transition: color 0.3s;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+}
+.team .member .social a:hover {
+  color: #428bca;
+}
+.team .member .social i {
+  font-size: 18px;
+  margin: 0 2px;
+}
+.team .member:hover .member-info {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 212, 255, 0) 100%);
+  opacity: 1;
+  transition: 0.4s;
+}
+.team .member:hover .member-info-content {
+  bottom: 60px;
+  transition: bottom 0.4s;
+}
+.team .member:hover .social {
+  bottom: 0;
+  transition: bottom ease-in-out 0.4s;
 }

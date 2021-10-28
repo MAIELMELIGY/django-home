@@ -192,7 +192,7 @@ class ProductHdl (models.Model):
 	image_4 = models.ImageField(upload_to='product/',null=True, blank=True)
 	image_5 = models.ImageField(upload_to='product/',null=True, blank=True)
 	videofile= models.FileField(upload_to='videos/', null=True,blank=True)
-
+	feature = RichTextField(null=True, blank=True)
 	def __str__(self):
 		return self.name
 	@property

@@ -59,20 +59,60 @@ def productHdl(request):
 		'productHdl':productHdl
 	}
 	return render(request , 'core/producthdl.html',context)
-def buspro(request):
-	producthdl =ProductHdl.objects.filter(SubCategory='Buspro')
+def buspro(request ,slug='Buspro'):
+	cats= SubCategory.objects.get(slug=slug)
+	productHdl =ProductHdl.objects.filter(SubCategory=cats)
 	headers = Header.objects.all()
 	context={
 		'headers':headers,
-		'productHdl':productHdl
+		'productHdl':productHdl,
+		'cats':cats,
 	}
 	return render(request , 'core/buspro.html',context)
-
-def knx(request):
-	producthdl =ProductHdl.objects.filter(SubCategory='Knx')
+def knx(request ,slug='Knx'):
+	cats= SubCategory.objects.get(slug=slug)
+	productHdl = ProductHdl.objects.filter(SubCategory=cats)
 	headers = Header.objects.all()
 	context={
 		'headers':headers,
-		'productHdl':productHdl
+		'productHdl':productHdl,
+		'cats':cats,
 	}
 	return render(request , 'core/knx.html',context)
+def product_details(request , slug):
+	headers = Header.objects.all()
+	product  = ProductHdl.objects.get(slug=slug)
+	context = {
+		'product' :product,
+		'headers':headers,
+	}
+	return render(request , 'core/product.html',context)
+def tag(request):
+	headers = Header.objects.all()
+	tag  = Tag.objects.all()
+	context = {
+		'tag' :tag,
+		'headers':headers,
+	}
+	return render(request , 'core/tag.html',context)
+
+
+def tag_details(request , slug):
+	headers = Header.objects.all()
+	tag = Tag.objects.get(slug=slug)
+	product =  ProductTuya.objects.filter(tag=tag)
+	context = {
+		'tag' :tag,
+		'headers':headers,
+		'product':product
+	}
+	return render(request , 'core/tag_details.html',context)
+
+def producttuya_details(request , slug):
+	headers = Header.objects.all()
+	product  = ProductTuya.objects.get(slug=slug)
+	context = {
+		'product' :product,
+		'headers':headers,
+	}
+	return render(request , 'core/product_tuya.html',context)
