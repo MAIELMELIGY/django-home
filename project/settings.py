@@ -13,9 +13,9 @@ import dj_database_url
 SECRET_KEY = 'django-insecure-+iv_^5iekkl7vk9a^$y#171rxfo%&ol&wfc3s^u*3%nc+dd0-v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = Fale
 
-ALLOWED_HOSTS = ['homeautomationwebsite.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
