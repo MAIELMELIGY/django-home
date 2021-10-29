@@ -149,7 +149,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 # Extra places for collectstatic to find static files.
-]
+
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 import django_heroku
